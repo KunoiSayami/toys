@@ -26,7 +26,7 @@ async def iter_all_file(session: aiohttp.ClientSession, server_address: str, url
 
 
 async def download(session: aiohttp.ClientSession, url: str, file_name: str) -> None:
-    if file_name.endswith('/'):
+    if file_name.endswith('/') or file_name.endswith('.lnk'):
         return
     if os.path.exists(urllib.parse.unquote(file_name)):
         return
